@@ -130,7 +130,7 @@ contract smartNFT_SC is ERC721, smartNFT {
         uint256 _hashK_O
     ) public virtual override {
         //Check if sender is the Owner of token and the State of token
-        require(ownerOfSD[_tokenId] == msg.sender);
+        require(ownerOfSD[_tokenId] == msg.sender, "Is not owner");
         if (
             (Secure_Token[_tokenId].timestamp +
                 Secure_Token[_tokenId].timeout) > block.timestamp
@@ -146,9 +146,9 @@ contract smartNFT_SC is ERC721, smartNFT {
     function ownerEngagement(uint256 _hashK_D) public virtual override {
         uint256 _tokenId = tokenFromBCA(msg.sender);
         //Check if public key owner-device exist from tokenID of BCA sender
-        require(Secure_Token[_tokenId].dataEngagement != 0);
-        require(Secure_Token[_tokenId].hashK_OD == _hashK_D);
-        require(Secure_Token[_tokenId].state == States.waitingForOwner);
+        require(Secure_Token[_tokenId].dataEngagement != 0, "does not exist");
+        require(Secure_Token[_tokenId].hashK_OD == _hashK_D, "does not exist");
+        require(Secure_Token[_tokenId].state == States.waitingForOwner, "does not exist");
         //Erase PK_User-Device and update timestamp
         Secure_Token[_tokenId].dataEngagement = 0;
         Secure_Token[_tokenId].timestamp = block.timestamp;
@@ -164,7 +164,7 @@ contract smartNFT_SC is ERC721, smartNFT {
         uint256 _hashK_U
     ) public virtual override {
         //Check if sender is the User of token and the State of token
-        require(Secure_Token[_tokenId].user == msg.sender);
+        require(Secure_Token[_tokenId].user == msg.sender, "Sender is not user");
         if (
             (Secure_Token[_tokenId].timestamp +
                 Secure_Token[_tokenId].timeout) > block.timestamp
@@ -180,9 +180,9 @@ contract smartNFT_SC is ERC721, smartNFT {
     function userEngagement(uint256 _hashK_D) public virtual override {
         uint256 _tokenId = tokenFromBCA(msg.sender);
         //Check if public key user-device exist from tokenID of BCA sender
-        require(Secure_Token[_tokenId].dataEngagement != 0);
-        require(Secure_Token[_tokenId].hashK_UD == _hashK_D);
-        require(Secure_Token[_tokenId].state == States.waitingForUser);
+        require(Secure_Token[_tokenId].dataEngagement != 0, "does not exist");
+        require(Secure_Token[_tokenId].hashK_UD == _hashK_D, "does not exist");
+        require(Secure_Token[_tokenId].state == States.waitingForUser, "does not exist");
         //Erase PK_User-Device and update timestamp
         Secure_Token[_tokenId].dataEngagement = 0;
         Secure_Token[_tokenId].timestamp = block.timestamp;
