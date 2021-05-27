@@ -1,0 +1,3601 @@
+{
+  "contractName": "smartNFT",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "tokenID",
+          "type": "uint256"
+        }
+      ],
+      "name": "OwnerEngaged",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "tokenID",
+          "type": "uint256"
+        }
+      ],
+      "name": "TimeoutAlarm",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "tokenID",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_addressUser",
+          "type": "address"
+        }
+      ],
+      "name": "UserAssigned",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "tokenID",
+          "type": "uint256"
+        }
+      ],
+      "name": "UserEngaged",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_addressSD",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_addressOwner",
+          "type": "address"
+        }
+      ],
+      "name": "createToken",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "_addressUser",
+          "type": "address"
+        }
+      ],
+      "name": "setUser",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_dataEngage",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_hashK_O",
+          "type": "uint256"
+        }
+      ],
+      "name": "startOwnerEngagement",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_hashK_D",
+          "type": "uint256"
+        }
+      ],
+      "name": "ownerEngagement",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_dataEngage",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_hashK_U",
+          "type": "uint256"
+        }
+      ],
+      "name": "startUserEngagement",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_hashK_D",
+          "type": "uint256"
+        }
+      ],
+      "name": "userEngagement",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "checkTimeout",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_timeout",
+          "type": "uint256"
+        }
+      ],
+      "name": "setTimeout",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "updateTimestamp",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_addressSD",
+          "type": "address"
+        }
+      ],
+      "name": "tokenFromBCA",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_addressSD",
+          "type": "address"
+        }
+      ],
+      "name": "ownerOfFromBCA",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "userOf",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_addressSD",
+          "type": "address"
+        }
+      ],
+      "name": "userOfFromBCA",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_addressUser",
+          "type": "address"
+        }
+      ],
+      "name": "userBalanceOf",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_addressUser",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_addressOwner",
+          "type": "address"
+        }
+      ],
+      "name": "userBalanceOfAnOwner",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.4+commit.c7e474f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenID\",\"type\":\"uint256\"}],\"name\":\"OwnerEngaged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenID\",\"type\":\"uint256\"}],\"name\":\"TimeoutAlarm\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenID\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_addressUser\",\"type\":\"address\"}],\"name\":\"UserAssigned\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenID\",\"type\":\"uint256\"}],\"name\":\"UserEngaged\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"}],\"name\":\"checkTimeout\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_addressSD\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_addressOwner\",\"type\":\"address\"}],\"name\":\"createToken\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_hashK_D\",\"type\":\"uint256\"}],\"name\":\"ownerEngagement\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_addressSD\",\"type\":\"address\"}],\"name\":\"ownerOfFromBCA\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_timeout\",\"type\":\"uint256\"}],\"name\":\"setTimeout\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_addressUser\",\"type\":\"address\"}],\"name\":\"setUser\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_dataEngage\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_hashK_O\",\"type\":\"uint256\"}],\"name\":\"startOwnerEngagement\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_dataEngage\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_hashK_U\",\"type\":\"uint256\"}],\"name\":\"startUserEngagement\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_addressSD\",\"type\":\"address\"}],\"name\":\"tokenFromBCA\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"updateTimestamp\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_addressUser\",\"type\":\"address\"}],\"name\":\"userBalanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_addressUser\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_addressOwner\",\"type\":\"address\"}],\"name\":\"userBalanceOfAnOwner\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_hashK_D\",\"type\":\"uint256\"}],\"name\":\"userEngagement\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"}],\"name\":\"userOf\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_addressSD\",\"type\":\"address\"}],\"name\":\"userOfFromBCA\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"events\":{\"OwnerEngaged(uint256)\":{\"details\":\"This emits when ownership  any NFT verify a device.  This event emits when the owner a device finishing the transference.\"},\"UserAssigned(uint256,address)\":{\"details\":\"This emits when ownership of any NFT changes an user.  This event emits when the user of a token is transfered.  (`_addressUser` == 0) when a user is unassigned.\"},\"UserEngaged(uint256)\":{\"details\":\"This emits when user of any NFT verify a device.  This event emits when the user a device finishing the assignment.\"}},\"kind\":\"dev\",\"methods\":{\"createToken(address,address)\":{\"details\":\"Only the manufacturer of SD account can create a token and will be the first owner of token.  The inital state of the token is \\\"waitingForOwner\\\" until verification by the new Owner.\",\"params\":{\"_addressSD\":\"An address generated by the smart device, who only de smart device can generate this account. _addressOwner is the first owner of the Smart Device\"},\"returns\":{\"_0\":\"The tokenID of the token generated binded to Smart Device.\"}},\"ownerOfFromBCA(address)\":{\"details\":\"Everybody can call this function, can be execute any code on blockchain only read.\",\"params\":{\"_addressSD\":\"the addres to obtain it's owner.\"},\"returns\":{\"_0\":\"The owner of the token generated binded to _addressSD.\"}},\"setUser(uint256,address)\":{\"details\":\"Only the owner of token account can transfer a token and the state of token need to \\\"engagedWithOwner\\\",\\\"waitingForUser\\\" or \\\"engagedWithUser\\\".  The state of token must change to \\\"waitingForUser\\\" and change the parameter addressUser of token defined by _tokenID with _addressUser\",\"params\":{\"_addressUser\":\"The address of the new user.\",\"_tokenId\":\"the tokenID of Smart Device.\"}},\"tokenFromBCA(address)\":{\"details\":\"Everybody can call this function, can be execute any code on blockchain only read.\",\"params\":{\"_addressSD\":\"the addres to obtain it's token ID\"},\"returns\":{\"_0\":\"The tokenID of the token generated binded to _addressSD.\"}},\"userBalanceOf(address)\":{\"details\":\"Everybody can call this function, can be execute any code on blockchain only read.\",\"params\":{\"_addressUser\":\"the address to know the number of device can use.\"},\"returns\":{\"_0\":\"the number of device can use.\"}},\"userBalanceOfAnOwner(address,address)\":{\"details\":\"Everybody can call this function, can be execute any code on blockchain only read.\",\"params\":{\"_addressOwner\":\"the address the owner of this tokens.\",\"_addressUser\":\"the address to know the number of device of an owner can use.\"},\"returns\":{\"_0\":\"the number of device of an owner can use.\"}},\"userOf(uint256)\":{\"details\":\"Everybody can call this function, can be execute any code on blockchain only read.\",\"params\":{\"_tokenId\":\"of the token to obtain it's user.\"},\"returns\":{\"_0\":\"The user of the token with _tokenId.\"}},\"userOfFromBCA(address)\":{\"details\":\"Everybody can call this function, can be execute any code on blockchain only read.\",\"params\":{\"_addressSD\":\"the addres to obtain it's user.\"},\"returns\":{\"_0\":\"The user of the token generated binded to _addressSD.\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"createToken(address,address)\":{\"notice\":\"This function define how the Smart Device is binded whith a new token\"},\"ownerOfFromBCA(address)\":{\"notice\":\"This function let know  who is the owner of token by the address of Smart Device\"},\"setUser(uint256,address)\":{\"notice\":\"This function define the transference of use of a Smart Device\"},\"tokenFromBCA(address)\":{\"notice\":\"This function let obtain the tokenID from an address of Smart Device\"},\"userBalanceOf(address)\":{\"notice\":\"This function let know many tokens have an user.\"},\"userBalanceOfAnOwner(address,address)\":{\"notice\":\"This function let know many tokens of an owner have an user.\"},\"userOf(uint256)\":{\"notice\":\"This function let know  who is the user of the token with its tokenID\"},\"userOfFromBCA(address)\":{\"notice\":\"This function let know  who is the user of token by the address of Smart Device\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/jackmcknight/Documents/beam_research/Smart-Non-Fungible-Token/contracts/SmartNFT_Interface.sol\":\"smartNFT\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/jackmcknight/Documents/beam_research/Smart-Non-Fungible-Token/contracts/SmartNFT_Interface.sol\":{\"keccak256\":\"0x1b66dedc41a933764e0127d5cfda1c9cd45fe8873597ea89b9d0537ed3fa70e9\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://23d561286ed68110259371813e740a6b99cabe1e4a028376d291af2108abab03\",\"dweb:/ipfs/Qmae1YVMS1umKdaj1gzDTiCKxCtHzkAJ2oFAsP8TmW3rwd\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\n\ninterface smartNFT {\n    /// @dev This emits when ownership of any NFT changes an user.\n    ///  This event emits when the user of a token is transfered.\n    ///  (`_addressUser` == 0) when a user is unassigned.\n    event UserAssigned(uint256 indexed tokenID, address indexed _addressUser);\n\n    /// @dev This emits when user of any NFT verify a device.\n    ///  This event emits when the user a device finishing the assignment.\n    event UserEngaged(uint256 indexed tokenID);\n\n    /// @dev This emits when ownership  any NFT verify a device.\n    ///  This event emits when the owner a device finishing the transference.\n    event OwnerEngaged(uint256 indexed tokenID);\n\n    //TODO:Describe new functions and events\n    event TimeoutAlarm(uint256 indexed tokenID);\n\n    /// @notice This function define how the Smart Device is binded whith a new token\n    /// @dev Only the manufacturer of SD account can create a token and will be the first owner of token.\n    ///  The inital state of the token is \"waitingForOwner\" until verification by the new Owner.\n    /// @param _addressSD An address generated by the smart device, who only de smart device can generate this account. _addressOwner is the first owner of the Smart Device\n    /// @return The tokenID of the token generated binded to Smart Device.\n    function createToken(address _addressSD, address _addressOwner)\n        external\n        returns (uint256);\n\n    /// @notice This function define the transference of use of a Smart Device\n    /// @dev Only the owner of token account can transfer a token and the state of token need to \"engagedWithOwner\",\"waitingForUser\" or \"engagedWithUser\".\n    ///  The state of token must change to \"waitingForUser\" and change the parameter addressUser of token defined by _tokenID with _addressUser\n    /// @param _tokenId the tokenID of Smart Device.\n    /// @param _addressUser The address of the new user.\n    function setUser(uint256 _tokenId, address _addressUser) external;\n\n    //TODO:Describe new functions and events\n\n    function startOwnerEngagement(\n        uint256 _tokenId,\n        uint256 _dataEngage,\n        uint256 _hashK_O\n    ) external;\n\n    function ownerEngagement(uint256 _hashK_D) external;\n\n    function startUserEngagement(\n        uint256 _tokenId,\n        uint256 _dataEngage,\n        uint256 _hashK_U\n    ) external;\n\n    function userEngagement(uint256 _hashK_D) external;\n\n    function checkTimeout(uint256 _tokenId) external returns (bool);\n\n    function setTimeout(uint256 _tokenId, uint256 _timeout) external;\n\n    function updateTimestamp() external;\n\n    /// @notice This function let obtain the tokenID from an address of Smart Device\n    /// @dev Everybody can call this function, can be execute any code on blockchain only read.\n    /// @param _addressSD the addres to obtain it's token ID\n    /// @return The tokenID of the token generated binded to _addressSD.\n    function tokenFromBCA(address _addressSD) external view returns (uint256);\n\n    /// @notice This function let know  who is the owner of token by the address of Smart Device\n    /// @dev Everybody can call this function, can be execute any code on blockchain only read.\n    /// @param _addressSD the addres to obtain it's owner.\n    /// @return The owner of the token generated binded to _addressSD.\n    function ownerOfFromBCA(address _addressSD) external view returns (address);\n\n    /// @notice This function let know  who is the user of the token with its tokenID\n    /// @dev Everybody can call this function, can be execute any code on blockchain only read.\n    /// @param _tokenId of the token to obtain it's user.\n    /// @return The user of the token with _tokenId.\n    function userOf(uint256 _tokenId) external view returns (address);\n\n    /// @notice This function let know  who is the user of token by the address of Smart Device\n    /// @dev Everybody can call this function, can be execute any code on blockchain only read.\n    /// @param _addressSD the addres to obtain it's user.\n    /// @return The user of the token generated binded to _addressSD.\n    function userOfFromBCA(address _addressSD) external view returns (address);\n\n    /// @notice This function let know many tokens have an user.\n    /// @dev Everybody can call this function, can be execute any code on blockchain only read.\n    /// @param _addressUser the address to know the number of device can use.\n    /// @return the number of device can use.\n    function userBalanceOf(address _addressUser)\n        external\n        view\n        returns (uint256);\n\n    /// @notice This function let know many tokens of an owner have an user.\n    /// @dev Everybody can call this function, can be execute any code on blockchain only read.\n    /// @param _addressUser the address to know the number of device of an owner can use.\n    /// @param _addressOwner the address the owner of this tokens.\n    /// @return the number of device of an owner can use.\n    function userBalanceOfAnOwner(address _addressUser, address _addressOwner)\n        external\n        view\n        returns (uint256);\n}\n",
+  "sourcePath": "/Users/jackmcknight/Documents/beam_research/Smart-Non-Fungible-Token/contracts/SmartNFT_Interface.sol",
+  "ast": {
+    "absolutePath": "/Users/jackmcknight/Documents/beam_research/Smart-Non-Fungible-Token/contracts/SmartNFT_Interface.sol",
+    "exportedSymbols": {
+      "smartNFT": [
+        136
+      ]
+    },
+    "id": 137,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:32:0"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 136,
+        "linearizedBaseContracts": [
+          136
+        ],
+        "name": "smartNFT",
+        "nameLocation": "76:8:0",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 2,
+              "nodeType": "StructuredDocumentation",
+              "src": "91:186:0",
+              "text": "@dev This emits when ownership of any NFT changes an user.\n  This event emits when the user of a token is transfered.\n  (`_addressUser` == 0) when a user is unassigned."
+            },
+            "id": 8,
+            "name": "UserAssigned",
+            "nameLocation": "288:12:0",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 7,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "tokenID",
+                  "nameLocation": "317:7:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8,
+                  "src": "301:23:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "301:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "_addressUser",
+                  "nameLocation": "342:12:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8,
+                  "src": "326:28:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "326:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "300:55:0"
+            },
+            "src": "282:74:0"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 9,
+              "nodeType": "StructuredDocumentation",
+              "src": "362:132:0",
+              "text": "@dev This emits when user of any NFT verify a device.\n  This event emits when the user a device finishing the assignment."
+            },
+            "id": 13,
+            "name": "UserEngaged",
+            "nameLocation": "505:11:0",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 12,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 11,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "tokenID",
+                  "nameLocation": "533:7:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 13,
+                  "src": "517:23:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 10,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "517:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "516:25:0"
+            },
+            "src": "499:43:0"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 14,
+              "nodeType": "StructuredDocumentation",
+              "src": "548:138:0",
+              "text": "@dev This emits when ownership  any NFT verify a device.\n  This event emits when the owner a device finishing the transference."
+            },
+            "id": 18,
+            "name": "OwnerEngaged",
+            "nameLocation": "697:12:0",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 17,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 16,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "tokenID",
+                  "nameLocation": "726:7:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 18,
+                  "src": "710:23:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 15,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "710:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "709:25:0"
+            },
+            "src": "691:44:0"
+          },
+          {
+            "anonymous": false,
+            "id": 22,
+            "name": "TimeoutAlarm",
+            "nameLocation": "792:12:0",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 21,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 20,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "tokenID",
+                  "nameLocation": "821:7:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 22,
+                  "src": "805:23:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 19,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "805:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "804:25:0"
+            },
+            "src": "786:44:0"
+          },
+          {
+            "documentation": {
+              "id": 23,
+              "nodeType": "StructuredDocumentation",
+              "src": "836:532:0",
+              "text": "@notice This function define how the Smart Device is binded whith a new token\n @dev Only the manufacturer of SD account can create a token and will be the first owner of token.\n  The inital state of the token is \"waitingForOwner\" until verification by the new Owner.\n @param _addressSD An address generated by the smart device, who only de smart device can generate this account. _addressOwner is the first owner of the Smart Device\n @return The tokenID of the token generated binded to Smart Device."
+            },
+            "functionSelector": "6ed776b2",
+            "id": 32,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "createToken",
+            "nameLocation": "1382:11:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 28,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 25,
+                  "mutability": "mutable",
+                  "name": "_addressSD",
+                  "nameLocation": "1402:10:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 32,
+                  "src": "1394:18:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 24,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1394:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 27,
+                  "mutability": "mutable",
+                  "name": "_addressOwner",
+                  "nameLocation": "1422:13:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 32,
+                  "src": "1414:21:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 26,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1414:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1393:43:0"
+            },
+            "returnParameters": {
+              "id": 31,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 30,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 32,
+                  "src": "1471:7:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 29,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1471:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1470:9:0"
+            },
+            "scope": 136,
+            "src": "1373:107:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 33,
+              "nodeType": "StructuredDocumentation",
+              "src": "1486:483:0",
+              "text": "@notice This function define the transference of use of a Smart Device\n @dev Only the owner of token account can transfer a token and the state of token need to \"engagedWithOwner\",\"waitingForUser\" or \"engagedWithUser\".\n  The state of token must change to \"waitingForUser\" and change the parameter addressUser of token defined by _tokenID with _addressUser\n @param _tokenId the tokenID of Smart Device.\n @param _addressUser The address of the new user."
+            },
+            "functionSelector": "db4d295b",
+            "id": 40,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setUser",
+            "nameLocation": "1983:7:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 38,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 35,
+                  "mutability": "mutable",
+                  "name": "_tokenId",
+                  "nameLocation": "1999:8:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 40,
+                  "src": "1991:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 34,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1991:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 37,
+                  "mutability": "mutable",
+                  "name": "_addressUser",
+                  "nameLocation": "2017:12:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 40,
+                  "src": "2009:20:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 36,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2009:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1990:40:0"
+            },
+            "returnParameters": {
+              "id": 39,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2039:0:0"
+            },
+            "scope": 136,
+            "src": "1974:66:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "128da698",
+            "id": 49,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "startOwnerEngagement",
+            "nameLocation": "2101:20:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 47,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 42,
+                  "mutability": "mutable",
+                  "name": "_tokenId",
+                  "nameLocation": "2139:8:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 49,
+                  "src": "2131:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 41,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2131:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 44,
+                  "mutability": "mutable",
+                  "name": "_dataEngage",
+                  "nameLocation": "2165:11:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 49,
+                  "src": "2157:19:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 43,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2157:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 46,
+                  "mutability": "mutable",
+                  "name": "_hashK_O",
+                  "nameLocation": "2194:8:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 49,
+                  "src": "2186:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 45,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2186:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2121:87:0"
+            },
+            "returnParameters": {
+              "id": 48,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2217:0:0"
+            },
+            "scope": 136,
+            "src": "2092:126:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "ad2661fc",
+            "id": 54,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "ownerEngagement",
+            "nameLocation": "2233:15:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 52,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 51,
+                  "mutability": "mutable",
+                  "name": "_hashK_D",
+                  "nameLocation": "2257:8:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 54,
+                  "src": "2249:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 50,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2249:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2248:18:0"
+            },
+            "returnParameters": {
+              "id": 53,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2275:0:0"
+            },
+            "scope": 136,
+            "src": "2224:52:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "adadaf40",
+            "id": 63,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "startUserEngagement",
+            "nameLocation": "2291:19:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 61,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 56,
+                  "mutability": "mutable",
+                  "name": "_tokenId",
+                  "nameLocation": "2328:8:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 63,
+                  "src": "2320:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 55,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2320:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 58,
+                  "mutability": "mutable",
+                  "name": "_dataEngage",
+                  "nameLocation": "2354:11:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 63,
+                  "src": "2346:19:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 57,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2346:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 60,
+                  "mutability": "mutable",
+                  "name": "_hashK_U",
+                  "nameLocation": "2383:8:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 63,
+                  "src": "2375:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 59,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2375:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2310:87:0"
+            },
+            "returnParameters": {
+              "id": 62,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2406:0:0"
+            },
+            "scope": 136,
+            "src": "2282:125:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "531f2bcd",
+            "id": 68,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "userEngagement",
+            "nameLocation": "2422:14:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 66,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 65,
+                  "mutability": "mutable",
+                  "name": "_hashK_D",
+                  "nameLocation": "2445:8:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 68,
+                  "src": "2437:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 64,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2437:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2436:18:0"
+            },
+            "returnParameters": {
+              "id": 67,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2463:0:0"
+            },
+            "scope": 136,
+            "src": "2413:51:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "5329c681",
+            "id": 75,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "checkTimeout",
+            "nameLocation": "2479:12:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 71,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 70,
+                  "mutability": "mutable",
+                  "name": "_tokenId",
+                  "nameLocation": "2500:8:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 75,
+                  "src": "2492:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 69,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2492:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2491:18:0"
+            },
+            "returnParameters": {
+              "id": 74,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 73,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 75,
+                  "src": "2528:4:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 72,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2528:4:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2527:6:0"
+            },
+            "scope": 136,
+            "src": "2470:64:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "0b6df367",
+            "id": 82,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setTimeout",
+            "nameLocation": "2549:10:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 80,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 77,
+                  "mutability": "mutable",
+                  "name": "_tokenId",
+                  "nameLocation": "2568:8:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 82,
+                  "src": "2560:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 76,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2560:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 79,
+                  "mutability": "mutable",
+                  "name": "_timeout",
+                  "nameLocation": "2586:8:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 82,
+                  "src": "2578:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 78,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2578:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2559:36:0"
+            },
+            "returnParameters": {
+              "id": 81,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2604:0:0"
+            },
+            "scope": 136,
+            "src": "2540:65:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "1c5be3d7",
+            "id": 85,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "updateTimestamp",
+            "nameLocation": "2620:15:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 83,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2635:2:0"
+            },
+            "returnParameters": {
+              "id": 84,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2646:0:0"
+            },
+            "scope": 136,
+            "src": "2611:36:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 86,
+              "nodeType": "StructuredDocumentation",
+              "src": "2653:310:0",
+              "text": "@notice This function let obtain the tokenID from an address of Smart Device\n @dev Everybody can call this function, can be execute any code on blockchain only read.\n @param _addressSD the addres to obtain it's token ID\n @return The tokenID of the token generated binded to _addressSD."
+            },
+            "functionSelector": "e61e3a76",
+            "id": 93,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "tokenFromBCA",
+            "nameLocation": "2977:12:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 89,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 88,
+                  "mutability": "mutable",
+                  "name": "_addressSD",
+                  "nameLocation": "2998:10:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 93,
+                  "src": "2990:18:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 87,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2990:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2989:20:0"
+            },
+            "returnParameters": {
+              "id": 92,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 91,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 93,
+                  "src": "3033:7:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 90,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3033:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3032:9:0"
+            },
+            "scope": 136,
+            "src": "2968:74:0",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 94,
+              "nodeType": "StructuredDocumentation",
+              "src": "3048:318:0",
+              "text": "@notice This function let know  who is the owner of token by the address of Smart Device\n @dev Everybody can call this function, can be execute any code on blockchain only read.\n @param _addressSD the addres to obtain it's owner.\n @return The owner of the token generated binded to _addressSD."
+            },
+            "functionSelector": "f7b44a0f",
+            "id": 101,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "ownerOfFromBCA",
+            "nameLocation": "3380:14:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 97,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 96,
+                  "mutability": "mutable",
+                  "name": "_addressSD",
+                  "nameLocation": "3403:10:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 101,
+                  "src": "3395:18:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 95,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3395:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3394:20:0"
+            },
+            "returnParameters": {
+              "id": 100,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 99,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 101,
+                  "src": "3438:7:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 98,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3438:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3437:9:0"
+            },
+            "scope": 136,
+            "src": "3371:76:0",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 102,
+              "nodeType": "StructuredDocumentation",
+              "src": "3453:288:0",
+              "text": "@notice This function let know  who is the user of the token with its tokenID\n @dev Everybody can call this function, can be execute any code on blockchain only read.\n @param _tokenId of the token to obtain it's user.\n @return The user of the token with _tokenId."
+            },
+            "functionSelector": "c2f1f14a",
+            "id": 109,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "userOf",
+            "nameLocation": "3755:6:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 105,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 104,
+                  "mutability": "mutable",
+                  "name": "_tokenId",
+                  "nameLocation": "3770:8:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 109,
+                  "src": "3762:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 103,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3762:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3761:18:0"
+            },
+            "returnParameters": {
+              "id": 108,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 107,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 109,
+                  "src": "3803:7:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 106,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3803:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3802:9:0"
+            },
+            "scope": 136,
+            "src": "3746:66:0",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 110,
+              "nodeType": "StructuredDocumentation",
+              "src": "3818:315:0",
+              "text": "@notice This function let know  who is the user of token by the address of Smart Device\n @dev Everybody can call this function, can be execute any code on blockchain only read.\n @param _addressSD the addres to obtain it's user.\n @return The user of the token generated binded to _addressSD."
+            },
+            "functionSelector": "d1553258",
+            "id": 117,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "userOfFromBCA",
+            "nameLocation": "4147:13:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 113,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 112,
+                  "mutability": "mutable",
+                  "name": "_addressSD",
+                  "nameLocation": "4169:10:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 117,
+                  "src": "4161:18:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 111,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4161:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4160:20:0"
+            },
+            "returnParameters": {
+              "id": 116,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 115,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 117,
+                  "src": "4204:7:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 114,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4204:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4203:9:0"
+            },
+            "scope": 136,
+            "src": "4138:75:0",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 118,
+              "nodeType": "StructuredDocumentation",
+              "src": "4219:280:0",
+              "text": "@notice This function let know many tokens have an user.\n @dev Everybody can call this function, can be execute any code on blockchain only read.\n @param _addressUser the address to know the number of device can use.\n @return the number of device can use."
+            },
+            "functionSelector": "0cb22289",
+            "id": 125,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "userBalanceOf",
+            "nameLocation": "4513:13:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 121,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 120,
+                  "mutability": "mutable",
+                  "name": "_addressUser",
+                  "nameLocation": "4535:12:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 125,
+                  "src": "4527:20:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 119,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4527:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4526:22:0"
+            },
+            "returnParameters": {
+              "id": 124,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 123,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 125,
+                  "src": "4596:7:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 122,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4596:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4595:9:0"
+            },
+            "scope": 136,
+            "src": "4504:101:0",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 126,
+              "nodeType": "StructuredDocumentation",
+              "src": "4611:383:0",
+              "text": "@notice This function let know many tokens of an owner have an user.\n @dev Everybody can call this function, can be execute any code on blockchain only read.\n @param _addressUser the address to know the number of device of an owner can use.\n @param _addressOwner the address the owner of this tokens.\n @return the number of device of an owner can use."
+            },
+            "functionSelector": "5a9f8682",
+            "id": 135,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "userBalanceOfAnOwner",
+            "nameLocation": "5008:20:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 131,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 128,
+                  "mutability": "mutable",
+                  "name": "_addressUser",
+                  "nameLocation": "5037:12:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 135,
+                  "src": "5029:20:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 127,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5029:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 130,
+                  "mutability": "mutable",
+                  "name": "_addressOwner",
+                  "nameLocation": "5059:13:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 135,
+                  "src": "5051:21:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 129,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5051:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5028:45:0"
+            },
+            "returnParameters": {
+              "id": 134,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 133,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 135,
+                  "src": "5121:7:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 132,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5121:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5120:9:0"
+            },
+            "scope": 136,
+            "src": "4999:131:0",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 137,
+        "src": "66:5066:0",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:5101:0"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/jackmcknight/Documents/beam_research/Smart-Non-Fungible-Token/contracts/SmartNFT_Interface.sol",
+    "exportedSymbols": {
+      "smartNFT": [
+        136
+      ]
+    },
+    "id": 137,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:32:0"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 136,
+        "linearizedBaseContracts": [
+          136
+        ],
+        "name": "smartNFT",
+        "nameLocation": "76:8:0",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 2,
+              "nodeType": "StructuredDocumentation",
+              "src": "91:186:0",
+              "text": "@dev This emits when ownership of any NFT changes an user.\n  This event emits when the user of a token is transfered.\n  (`_addressUser` == 0) when a user is unassigned."
+            },
+            "id": 8,
+            "name": "UserAssigned",
+            "nameLocation": "288:12:0",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 7,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "tokenID",
+                  "nameLocation": "317:7:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8,
+                  "src": "301:23:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "301:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "_addressUser",
+                  "nameLocation": "342:12:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8,
+                  "src": "326:28:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "326:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "300:55:0"
+            },
+            "src": "282:74:0"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 9,
+              "nodeType": "StructuredDocumentation",
+              "src": "362:132:0",
+              "text": "@dev This emits when user of any NFT verify a device.\n  This event emits when the user a device finishing the assignment."
+            },
+            "id": 13,
+            "name": "UserEngaged",
+            "nameLocation": "505:11:0",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 12,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 11,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "tokenID",
+                  "nameLocation": "533:7:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 13,
+                  "src": "517:23:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 10,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "517:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "516:25:0"
+            },
+            "src": "499:43:0"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 14,
+              "nodeType": "StructuredDocumentation",
+              "src": "548:138:0",
+              "text": "@dev This emits when ownership  any NFT verify a device.\n  This event emits when the owner a device finishing the transference."
+            },
+            "id": 18,
+            "name": "OwnerEngaged",
+            "nameLocation": "697:12:0",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 17,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 16,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "tokenID",
+                  "nameLocation": "726:7:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 18,
+                  "src": "710:23:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 15,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "710:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "709:25:0"
+            },
+            "src": "691:44:0"
+          },
+          {
+            "anonymous": false,
+            "id": 22,
+            "name": "TimeoutAlarm",
+            "nameLocation": "792:12:0",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 21,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 20,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "tokenID",
+                  "nameLocation": "821:7:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 22,
+                  "src": "805:23:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 19,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "805:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "804:25:0"
+            },
+            "src": "786:44:0"
+          },
+          {
+            "documentation": {
+              "id": 23,
+              "nodeType": "StructuredDocumentation",
+              "src": "836:532:0",
+              "text": "@notice This function define how the Smart Device is binded whith a new token\n @dev Only the manufacturer of SD account can create a token and will be the first owner of token.\n  The inital state of the token is \"waitingForOwner\" until verification by the new Owner.\n @param _addressSD An address generated by the smart device, who only de smart device can generate this account. _addressOwner is the first owner of the Smart Device\n @return The tokenID of the token generated binded to Smart Device."
+            },
+            "functionSelector": "6ed776b2",
+            "id": 32,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "createToken",
+            "nameLocation": "1382:11:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 28,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 25,
+                  "mutability": "mutable",
+                  "name": "_addressSD",
+                  "nameLocation": "1402:10:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 32,
+                  "src": "1394:18:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 24,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1394:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 27,
+                  "mutability": "mutable",
+                  "name": "_addressOwner",
+                  "nameLocation": "1422:13:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 32,
+                  "src": "1414:21:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 26,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1414:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1393:43:0"
+            },
+            "returnParameters": {
+              "id": 31,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 30,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 32,
+                  "src": "1471:7:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 29,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1471:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1470:9:0"
+            },
+            "scope": 136,
+            "src": "1373:107:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 33,
+              "nodeType": "StructuredDocumentation",
+              "src": "1486:483:0",
+              "text": "@notice This function define the transference of use of a Smart Device\n @dev Only the owner of token account can transfer a token and the state of token need to \"engagedWithOwner\",\"waitingForUser\" or \"engagedWithUser\".\n  The state of token must change to \"waitingForUser\" and change the parameter addressUser of token defined by _tokenID with _addressUser\n @param _tokenId the tokenID of Smart Device.\n @param _addressUser The address of the new user."
+            },
+            "functionSelector": "db4d295b",
+            "id": 40,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setUser",
+            "nameLocation": "1983:7:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 38,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 35,
+                  "mutability": "mutable",
+                  "name": "_tokenId",
+                  "nameLocation": "1999:8:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 40,
+                  "src": "1991:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 34,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1991:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 37,
+                  "mutability": "mutable",
+                  "name": "_addressUser",
+                  "nameLocation": "2017:12:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 40,
+                  "src": "2009:20:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 36,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2009:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1990:40:0"
+            },
+            "returnParameters": {
+              "id": 39,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2039:0:0"
+            },
+            "scope": 136,
+            "src": "1974:66:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "128da698",
+            "id": 49,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "startOwnerEngagement",
+            "nameLocation": "2101:20:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 47,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 42,
+                  "mutability": "mutable",
+                  "name": "_tokenId",
+                  "nameLocation": "2139:8:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 49,
+                  "src": "2131:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 41,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2131:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 44,
+                  "mutability": "mutable",
+                  "name": "_dataEngage",
+                  "nameLocation": "2165:11:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 49,
+                  "src": "2157:19:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 43,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2157:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 46,
+                  "mutability": "mutable",
+                  "name": "_hashK_O",
+                  "nameLocation": "2194:8:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 49,
+                  "src": "2186:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 45,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2186:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2121:87:0"
+            },
+            "returnParameters": {
+              "id": 48,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2217:0:0"
+            },
+            "scope": 136,
+            "src": "2092:126:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "ad2661fc",
+            "id": 54,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "ownerEngagement",
+            "nameLocation": "2233:15:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 52,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 51,
+                  "mutability": "mutable",
+                  "name": "_hashK_D",
+                  "nameLocation": "2257:8:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 54,
+                  "src": "2249:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 50,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2249:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2248:18:0"
+            },
+            "returnParameters": {
+              "id": 53,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2275:0:0"
+            },
+            "scope": 136,
+            "src": "2224:52:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "adadaf40",
+            "id": 63,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "startUserEngagement",
+            "nameLocation": "2291:19:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 61,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 56,
+                  "mutability": "mutable",
+                  "name": "_tokenId",
+                  "nameLocation": "2328:8:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 63,
+                  "src": "2320:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 55,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2320:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 58,
+                  "mutability": "mutable",
+                  "name": "_dataEngage",
+                  "nameLocation": "2354:11:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 63,
+                  "src": "2346:19:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 57,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2346:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 60,
+                  "mutability": "mutable",
+                  "name": "_hashK_U",
+                  "nameLocation": "2383:8:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 63,
+                  "src": "2375:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 59,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2375:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2310:87:0"
+            },
+            "returnParameters": {
+              "id": 62,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2406:0:0"
+            },
+            "scope": 136,
+            "src": "2282:125:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "531f2bcd",
+            "id": 68,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "userEngagement",
+            "nameLocation": "2422:14:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 66,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 65,
+                  "mutability": "mutable",
+                  "name": "_hashK_D",
+                  "nameLocation": "2445:8:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 68,
+                  "src": "2437:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 64,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2437:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2436:18:0"
+            },
+            "returnParameters": {
+              "id": 67,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2463:0:0"
+            },
+            "scope": 136,
+            "src": "2413:51:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "5329c681",
+            "id": 75,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "checkTimeout",
+            "nameLocation": "2479:12:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 71,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 70,
+                  "mutability": "mutable",
+                  "name": "_tokenId",
+                  "nameLocation": "2500:8:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 75,
+                  "src": "2492:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 69,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2492:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2491:18:0"
+            },
+            "returnParameters": {
+              "id": 74,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 73,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 75,
+                  "src": "2528:4:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 72,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2528:4:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2527:6:0"
+            },
+            "scope": 136,
+            "src": "2470:64:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "0b6df367",
+            "id": 82,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setTimeout",
+            "nameLocation": "2549:10:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 80,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 77,
+                  "mutability": "mutable",
+                  "name": "_tokenId",
+                  "nameLocation": "2568:8:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 82,
+                  "src": "2560:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 76,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2560:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 79,
+                  "mutability": "mutable",
+                  "name": "_timeout",
+                  "nameLocation": "2586:8:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 82,
+                  "src": "2578:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 78,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2578:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2559:36:0"
+            },
+            "returnParameters": {
+              "id": 81,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2604:0:0"
+            },
+            "scope": 136,
+            "src": "2540:65:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "1c5be3d7",
+            "id": 85,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "updateTimestamp",
+            "nameLocation": "2620:15:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 83,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2635:2:0"
+            },
+            "returnParameters": {
+              "id": 84,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2646:0:0"
+            },
+            "scope": 136,
+            "src": "2611:36:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 86,
+              "nodeType": "StructuredDocumentation",
+              "src": "2653:310:0",
+              "text": "@notice This function let obtain the tokenID from an address of Smart Device\n @dev Everybody can call this function, can be execute any code on blockchain only read.\n @param _addressSD the addres to obtain it's token ID\n @return The tokenID of the token generated binded to _addressSD."
+            },
+            "functionSelector": "e61e3a76",
+            "id": 93,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "tokenFromBCA",
+            "nameLocation": "2977:12:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 89,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 88,
+                  "mutability": "mutable",
+                  "name": "_addressSD",
+                  "nameLocation": "2998:10:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 93,
+                  "src": "2990:18:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 87,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2990:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2989:20:0"
+            },
+            "returnParameters": {
+              "id": 92,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 91,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 93,
+                  "src": "3033:7:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 90,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3033:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3032:9:0"
+            },
+            "scope": 136,
+            "src": "2968:74:0",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 94,
+              "nodeType": "StructuredDocumentation",
+              "src": "3048:318:0",
+              "text": "@notice This function let know  who is the owner of token by the address of Smart Device\n @dev Everybody can call this function, can be execute any code on blockchain only read.\n @param _addressSD the addres to obtain it's owner.\n @return The owner of the token generated binded to _addressSD."
+            },
+            "functionSelector": "f7b44a0f",
+            "id": 101,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "ownerOfFromBCA",
+            "nameLocation": "3380:14:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 97,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 96,
+                  "mutability": "mutable",
+                  "name": "_addressSD",
+                  "nameLocation": "3403:10:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 101,
+                  "src": "3395:18:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 95,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3395:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3394:20:0"
+            },
+            "returnParameters": {
+              "id": 100,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 99,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 101,
+                  "src": "3438:7:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 98,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3438:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3437:9:0"
+            },
+            "scope": 136,
+            "src": "3371:76:0",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 102,
+              "nodeType": "StructuredDocumentation",
+              "src": "3453:288:0",
+              "text": "@notice This function let know  who is the user of the token with its tokenID\n @dev Everybody can call this function, can be execute any code on blockchain only read.\n @param _tokenId of the token to obtain it's user.\n @return The user of the token with _tokenId."
+            },
+            "functionSelector": "c2f1f14a",
+            "id": 109,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "userOf",
+            "nameLocation": "3755:6:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 105,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 104,
+                  "mutability": "mutable",
+                  "name": "_tokenId",
+                  "nameLocation": "3770:8:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 109,
+                  "src": "3762:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 103,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3762:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3761:18:0"
+            },
+            "returnParameters": {
+              "id": 108,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 107,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 109,
+                  "src": "3803:7:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 106,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3803:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3802:9:0"
+            },
+            "scope": 136,
+            "src": "3746:66:0",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 110,
+              "nodeType": "StructuredDocumentation",
+              "src": "3818:315:0",
+              "text": "@notice This function let know  who is the user of token by the address of Smart Device\n @dev Everybody can call this function, can be execute any code on blockchain only read.\n @param _addressSD the addres to obtain it's user.\n @return The user of the token generated binded to _addressSD."
+            },
+            "functionSelector": "d1553258",
+            "id": 117,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "userOfFromBCA",
+            "nameLocation": "4147:13:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 113,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 112,
+                  "mutability": "mutable",
+                  "name": "_addressSD",
+                  "nameLocation": "4169:10:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 117,
+                  "src": "4161:18:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 111,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4161:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4160:20:0"
+            },
+            "returnParameters": {
+              "id": 116,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 115,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 117,
+                  "src": "4204:7:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 114,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4204:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4203:9:0"
+            },
+            "scope": 136,
+            "src": "4138:75:0",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 118,
+              "nodeType": "StructuredDocumentation",
+              "src": "4219:280:0",
+              "text": "@notice This function let know many tokens have an user.\n @dev Everybody can call this function, can be execute any code on blockchain only read.\n @param _addressUser the address to know the number of device can use.\n @return the number of device can use."
+            },
+            "functionSelector": "0cb22289",
+            "id": 125,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "userBalanceOf",
+            "nameLocation": "4513:13:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 121,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 120,
+                  "mutability": "mutable",
+                  "name": "_addressUser",
+                  "nameLocation": "4535:12:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 125,
+                  "src": "4527:20:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 119,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4527:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4526:22:0"
+            },
+            "returnParameters": {
+              "id": 124,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 123,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 125,
+                  "src": "4596:7:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 122,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4596:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4595:9:0"
+            },
+            "scope": 136,
+            "src": "4504:101:0",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 126,
+              "nodeType": "StructuredDocumentation",
+              "src": "4611:383:0",
+              "text": "@notice This function let know many tokens of an owner have an user.\n @dev Everybody can call this function, can be execute any code on blockchain only read.\n @param _addressUser the address to know the number of device of an owner can use.\n @param _addressOwner the address the owner of this tokens.\n @return the number of device of an owner can use."
+            },
+            "functionSelector": "5a9f8682",
+            "id": 135,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "userBalanceOfAnOwner",
+            "nameLocation": "5008:20:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 131,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 128,
+                  "mutability": "mutable",
+                  "name": "_addressUser",
+                  "nameLocation": "5037:12:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 135,
+                  "src": "5029:20:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 127,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5029:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 130,
+                  "mutability": "mutable",
+                  "name": "_addressOwner",
+                  "nameLocation": "5059:13:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 135,
+                  "src": "5051:21:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 129,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5051:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5028:45:0"
+            },
+            "returnParameters": {
+              "id": 134,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 133,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 135,
+                  "src": "5121:7:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 132,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5121:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5120:9:0"
+            },
+            "scope": 136,
+            "src": "4999:131:0",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 137,
+        "src": "66:5066:0",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:5101:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.4+commit.c7e474f2.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.1",
+  "updatedAt": "2021-05-27T19:39:44.340Z",
+  "devdoc": {
+    "events": {
+      "OwnerEngaged(uint256)": {
+        "details": "This emits when ownership  any NFT verify a device.  This event emits when the owner a device finishing the transference."
+      },
+      "UserAssigned(uint256,address)": {
+        "details": "This emits when ownership of any NFT changes an user.  This event emits when the user of a token is transfered.  (`_addressUser` == 0) when a user is unassigned."
+      },
+      "UserEngaged(uint256)": {
+        "details": "This emits when user of any NFT verify a device.  This event emits when the user a device finishing the assignment."
+      }
+    },
+    "kind": "dev",
+    "methods": {
+      "createToken(address,address)": {
+        "details": "Only the manufacturer of SD account can create a token and will be the first owner of token.  The inital state of the token is \"waitingForOwner\" until verification by the new Owner.",
+        "params": {
+          "_addressSD": "An address generated by the smart device, who only de smart device can generate this account. _addressOwner is the first owner of the Smart Device"
+        },
+        "returns": {
+          "_0": "The tokenID of the token generated binded to Smart Device."
+        }
+      },
+      "ownerOfFromBCA(address)": {
+        "details": "Everybody can call this function, can be execute any code on blockchain only read.",
+        "params": {
+          "_addressSD": "the addres to obtain it's owner."
+        },
+        "returns": {
+          "_0": "The owner of the token generated binded to _addressSD."
+        }
+      },
+      "setUser(uint256,address)": {
+        "details": "Only the owner of token account can transfer a token and the state of token need to \"engagedWithOwner\",\"waitingForUser\" or \"engagedWithUser\".  The state of token must change to \"waitingForUser\" and change the parameter addressUser of token defined by _tokenID with _addressUser",
+        "params": {
+          "_addressUser": "The address of the new user.",
+          "_tokenId": "the tokenID of Smart Device."
+        }
+      },
+      "tokenFromBCA(address)": {
+        "details": "Everybody can call this function, can be execute any code on blockchain only read.",
+        "params": {
+          "_addressSD": "the addres to obtain it's token ID"
+        },
+        "returns": {
+          "_0": "The tokenID of the token generated binded to _addressSD."
+        }
+      },
+      "userBalanceOf(address)": {
+        "details": "Everybody can call this function, can be execute any code on blockchain only read.",
+        "params": {
+          "_addressUser": "the address to know the number of device can use."
+        },
+        "returns": {
+          "_0": "the number of device can use."
+        }
+      },
+      "userBalanceOfAnOwner(address,address)": {
+        "details": "Everybody can call this function, can be execute any code on blockchain only read.",
+        "params": {
+          "_addressOwner": "the address the owner of this tokens.",
+          "_addressUser": "the address to know the number of device of an owner can use."
+        },
+        "returns": {
+          "_0": "the number of device of an owner can use."
+        }
+      },
+      "userOf(uint256)": {
+        "details": "Everybody can call this function, can be execute any code on blockchain only read.",
+        "params": {
+          "_tokenId": "of the token to obtain it's user."
+        },
+        "returns": {
+          "_0": "The user of the token with _tokenId."
+        }
+      },
+      "userOfFromBCA(address)": {
+        "details": "Everybody can call this function, can be execute any code on blockchain only read.",
+        "params": {
+          "_addressSD": "the addres to obtain it's user."
+        },
+        "returns": {
+          "_0": "The user of the token generated binded to _addressSD."
+        }
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "createToken(address,address)": {
+        "notice": "This function define how the Smart Device is binded whith a new token"
+      },
+      "ownerOfFromBCA(address)": {
+        "notice": "This function let know  who is the owner of token by the address of Smart Device"
+      },
+      "setUser(uint256,address)": {
+        "notice": "This function define the transference of use of a Smart Device"
+      },
+      "tokenFromBCA(address)": {
+        "notice": "This function let obtain the tokenID from an address of Smart Device"
+      },
+      "userBalanceOf(address)": {
+        "notice": "This function let know many tokens have an user."
+      },
+      "userBalanceOfAnOwner(address,address)": {
+        "notice": "This function let know many tokens of an owner have an user."
+      },
+      "userOf(uint256)": {
+        "notice": "This function let know  who is the user of the token with its tokenID"
+      },
+      "userOfFromBCA(address)": {
+        "notice": "This function let know  who is the user of token by the address of Smart Device"
+      }
+    },
+    "version": 1
+  }
+}
